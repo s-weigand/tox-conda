@@ -148,7 +148,8 @@ def tox_testenv_install_deps(venv, action):
     envdir = venv.envconfig.envdir
     # Save for later : we will need it for the config file
     import copy
-    saved_deps=copy.deepcopy(venv.envconfig.deps)
+
+    saved_deps = copy.deepcopy(venv.envconfig.deps)
 
     num_conda_deps = len(venv.envconfig.conda_deps)
     if num_conda_deps > 0:
@@ -161,5 +162,5 @@ def tox_testenv_install_deps(venv, action):
     # Install dependencies from pypi here
     tox.venv.tox_testenv_install_deps(venv=venv, action=action)
     # Restore for the config file
-    venv.envconfig.deps=saved_deps
+    venv.envconfig.deps = saved_deps
     return True
